@@ -273,6 +273,7 @@ MonoBehaviour:
   _timeToIncreseDifficulty: 10
   _spawnRate: 3
   _spawnRateFactor: 0.6
+  _timerOffset: 1
   _damageBulletPrefab: {fileID: 4136495738208970628, guid: 2cdebf6e891b4dd4b8cfe2bf8fdb02df, type: 3}
   _ghostBulletPrefab: {fileID: 2638072601495066142, guid: 5a40a28c68193e542814cd3d4f5effa7, type: 3}
   _spawners:

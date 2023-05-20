@@ -16,6 +16,7 @@ public class DamageBullet : Bullet
 
         if (_playerMask.Contains(collision.gameObject.layer))
         {
+            ShieldMechanic.TookDamage?.Invoke();
             Destroy(this.gameObject);
         }
 

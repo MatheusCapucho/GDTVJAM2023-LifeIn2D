@@ -5,6 +5,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float _timeToIncreseDifficulty = 10f;
     [SerializeField] private float _spawnRate = 5f;
     [SerializeField] private float _spawnRateFactor = 1f;
+    [SerializeField] private float _timerOffset = .5f;
     private float _minRate;
     private float _maxRate;
 
@@ -24,6 +25,7 @@ public class SpawnManager : MonoBehaviour
         _timerToIncrease = _timeToIncreseDifficulty;
         _minRate = _spawnRateFactor;
         _maxRate = _spawnRate;
+        _timeElapsed -= _timerOffset;
     }
     private void Update()
     {
@@ -94,6 +96,7 @@ public class SpawnManager : MonoBehaviour
         
     public void OnMapChange()
     {
+        
         _isParallelMap = !_isParallelMap;
     }
 }
