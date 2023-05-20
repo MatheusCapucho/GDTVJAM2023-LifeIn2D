@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         _input.x = Input.GetAxisRaw("Horizontal");
-        print(IsGrounded());
 
         if(Input.GetKeyDown(KeyCode.W) && IsGrounded())
         {
