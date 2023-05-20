@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Spawnner : MonoBehaviour
 {
-
-    [SerializeField]
-    private GameObject prefab;
-    public void SpawnBullet()
+    public void SpawnBullet(GameObject prefab)
     {
         Instantiate(prefab, transform.position, transform.rotation, transform);
     }
