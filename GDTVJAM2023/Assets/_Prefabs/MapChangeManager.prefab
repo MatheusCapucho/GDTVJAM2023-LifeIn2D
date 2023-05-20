@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _changerCooldown: 10
+  _transition1: {fileID: 0}
+  _transition2: {fileID: 0}
