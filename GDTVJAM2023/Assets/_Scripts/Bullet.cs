@@ -7,6 +7,8 @@ public abstract class Bullet : MonoBehaviour
 
     [SerializeField]
     private float _speed = 5f;
+    [SerializeField]
+    private float _lifetime = 10f;
 
     private Rigidbody2D _rb;
     private void Awake()
@@ -16,7 +18,7 @@ public abstract class Bullet : MonoBehaviour
     private void Start()
     {
         _rb.AddForce(transform.up * _speed, ForceMode2D.Force);
-        Destroy(this.gameObject, 5f);
+        Destroy(this.gameObject, _lifetime);
     }
 
 }

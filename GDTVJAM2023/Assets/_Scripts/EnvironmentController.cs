@@ -11,6 +11,7 @@ public class EnvironmentController : MonoBehaviour
     {
         _mainScene = transform.GetChild(0).gameObject;
         _parallelScene = transform.GetChild(1).gameObject;
+        _parallelScene.SetActive(false);
     }
     private void OnEnable()
     {

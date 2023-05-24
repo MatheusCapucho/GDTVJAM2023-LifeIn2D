@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private float _playerSpeed;
     [SerializeField]
     private float _jumpHeight;
+    [SerializeField]
+    private float _acceleration;
 
     private Transform[] _groundCheck = new Transform[2];
   
@@ -45,7 +47,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = new Vector2(_input.x * _playerSpeed, _rigidbody.velocity.y);
+        if (_rigidbody.velocity.y < 0f)
+            _rigidbody.velocity = new Vector2(_input.x * _playerSpeed, _rigidbody.velocity.y - _acceleration);
+        else
+            _rigidbody.velocity = new Vector2(_input.x * _playerSpeed, _rigidbody.velocity.y);
     }
 
     private bool IsGrounded()
