@@ -7,6 +7,22 @@ public class DamageBullet : Bullet
 {
     [SerializeField] private LayerMask _environmentMask;
     [SerializeField] private LayerMask _playerMask;
+
+    private void OnEnable()
+    {
+        MapChanger.ChangeMap += ReplaceBullets;
+    }
+
+    private void OnDisable()
+    {
+        MapChanger.ChangeMap -= ReplaceBullets;
+    }
+
+    private void ReplaceBullets()
+    {
+        Instantiate(_parallelBullet, transform.position, transform.rotation);
+        Destroy(this.gameObject);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (_environmentMask.Contains(collision.gameObject.layer))
@@ -19,7 +35,6 @@ public class DamageBullet : Bullet
             ShieldMechanic.TookDamage?.Invoke();
             Destroy(this.gameObject);
         }
-
        
     }
 

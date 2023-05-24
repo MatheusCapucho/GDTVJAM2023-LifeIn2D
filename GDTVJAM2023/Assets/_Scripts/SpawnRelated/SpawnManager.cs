@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class SpawnManager : MonoBehaviour
     private float _timeElapsed = 0f;
     private float _timerToNextSpawn = 0f;
     private float _timerToIncrease;
+
+    public static Action<float> DifficultyChanged;
 
     private void Start()
     {
@@ -50,6 +53,8 @@ public class SpawnManager : MonoBehaviour
             if (_timerToNextSpawn > _timeElapsed)
                 return;
 
+            DifficultyChanged?.Invoke(_spawnRateFactor);
+
             if (_timeElapsed >= _timerToIncrease)
             {
 
@@ -63,15 +68,17 @@ public class SpawnManager : MonoBehaviour
 
             _timerToNextSpawn += _spawnRate;
 
-            var rng = Random.Range(0, _spawners.Length);
+            var rng = UnityEngine.Random.Range(0, _spawners.Length);
             _spawners[rng].SpawnBullet(_damageBulletPrefab);
-            rng = Random.Range(0, _spawners.Length);
+            rng = UnityEngine.Random.Range(0, _spawners.Length);
             _spawners[rng].SpawnBullet(_damageBulletPrefab);
         }
         else
         {
             if (_timerToNextSpawn > _timeElapsed)
                 return;
+
+            DifficultyChanged?.Invoke(_spawnRateFactor);
 
             if (_timeElapsed >= _timerToIncrease)
             {
@@ -85,9 +92,9 @@ public class SpawnManager : MonoBehaviour
 
             _timerToNextSpawn += _spawnRate;
 
-            var rng = Random.Range(0, _spawners.Length);
+            var rng = UnityEngine.Random.Range(0, _spawners.Length);
             _spawners[rng].SpawnBullet(_ghostBulletPrefab);
-            rng = Random.Range(0, _spawners.Length);
+            rng = UnityEngine.Random.Range(0, _spawners.Length);
             _spawners[rng].SpawnBullet(_ghostBulletPrefab);
         }
         

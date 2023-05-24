@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6cd6149ed592a543b1d4ae8efab29fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 8
+  _lifetime: 10
+  _parallelBullet: {fileID: 2638072601495066142, guid: 5a40a28c68193e542814cd3d4f5effa7, type: 3}
   _environmentMask:
     serializedVersion: 2
     m_Bits: 128

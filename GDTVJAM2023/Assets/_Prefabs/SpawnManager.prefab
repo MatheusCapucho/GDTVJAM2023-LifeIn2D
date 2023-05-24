@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da56defe4816a854cb7a307b91f9422d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToIncreseDifficulty: 10
+  _timeToIncreseDifficulty: 7
   _spawnRate: 3
   _spawnRateFactor: 0.6
   _timerOffset: 1

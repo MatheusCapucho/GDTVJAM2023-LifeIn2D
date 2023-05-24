@@ -7,6 +7,7 @@ public class EnvironmentController : MonoBehaviour
 {
     private GameObject _mainScene;
     private GameObject _parallelScene;
+
     private void Awake()
     {
         _mainScene = transform.GetChild(0).gameObject;

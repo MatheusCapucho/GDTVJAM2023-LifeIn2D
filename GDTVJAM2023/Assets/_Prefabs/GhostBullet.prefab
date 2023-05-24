@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _lifetime: 10
+  _parallelBullet: {fileID: 4136495738208970628, guid: 2cdebf6e891b4dd4b8cfe2bf8fdb02df, type: 3}
   _environmentMask:
     serializedVersion: 2
     m_Bits: 128
