@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        if (GameManager.IsPaused)
+            return;
+
         _input.x = Input.GetAxisRaw("Horizontal");
 
         if(Input.GetKeyDown(KeyCode.W) && IsGrounded())

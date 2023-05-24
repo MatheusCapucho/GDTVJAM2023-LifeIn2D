@@ -7,6 +7,11 @@ public class ShieldMechanic : MonoBehaviour
 {
     [SerializeField]
     private float _shieldRechargeCooldown = 10f;
+    [SerializeField]
+    private float _shieldRechargeRate = 0.1f;
+
+    public float ShieldRechargeCooldown => _shieldRechargeCooldown;
+    public float ShieldRechargeRate => _shieldRechargeRate;
 
     private bool _isShieldDown;
 

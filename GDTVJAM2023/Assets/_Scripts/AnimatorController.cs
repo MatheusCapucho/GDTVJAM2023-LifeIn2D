@@ -32,6 +32,9 @@ public class AnimatorController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.IsPaused)
+            return;
+
         _xInput = Input.GetAxisRaw("Horizontal");
         CheckFlip();
         if (Input.GetKeyDown(KeyCode.W))
