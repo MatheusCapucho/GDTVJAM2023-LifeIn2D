@@ -39,8 +39,10 @@ public class AnimatorController : MonoBehaviour
         CheckFlip();
         if (Input.GetKeyDown(KeyCode.W))
             _animator.SetTrigger("Jump");
+
         _animator.SetFloat("XInput", Mathf.Abs(_xInput));
         _animator.SetFloat("YVelocity", _rb.velocity.y);
+        
     }
 
     private void CheckFlip()
