@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -7,6 +9,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float _spawnRate = 5f;
     [SerializeField] private float _spawnRateFactor = 1f;
     [SerializeField] private float _timerOffset = .5f;
+
+    [SerializeField] [Range(1, 6)]private int _maxSpawns = 3;
     private float _minRate;
     private float _maxRate;
 
@@ -68,10 +72,13 @@ public class SpawnManager : MonoBehaviour
 
             _timerToNextSpawn += _spawnRate;
 
-            var rng = UnityEngine.Random.Range(0, _spawners.Length);
-            _spawners[rng].SpawnBullet(_damageBulletPrefab);
-            rng = UnityEngine.Random.Range(0, _spawners.Length);
-            _spawners[rng].SpawnBullet(_damageBulletPrefab);
+            var spawnPoints = GenerateSpawnPoints();
+
+            foreach(var point in spawnPoints)
+            {
+                _spawners[point].SpawnBullet(_damageBulletPrefab);
+            }
+
         }
         else
         {
@@ -92,15 +99,33 @@ public class SpawnManager : MonoBehaviour
 
             _timerToNextSpawn += _spawnRate;
 
-            var rng = UnityEngine.Random.Range(0, _spawners.Length);
-            _spawners[rng].SpawnBullet(_ghostBulletPrefab);
-            rng = UnityEngine.Random.Range(0, _spawners.Length);
-            _spawners[rng].SpawnBullet(_ghostBulletPrefab);
+            var spawnPoints = GenerateSpawnPoints();
+
+            foreach (var point in spawnPoints)
+            {
+                _spawners[point].SpawnBullet(_ghostBulletPrefab);
+            }
         }
         
 
     }
-        
+
+
+    private List<int> GenerateSpawnPoints()
+    {
+        List<int> l = Enumerable.Range(0, _spawners.Length).ToList();
+        List<int> spawns = new List<int>();
+        System.Random rng = new System.Random();
+
+        for(int i = 0; i < _maxSpawns; i++)
+        {
+            int index = rng.Next(l.Count);
+            spawns.Add(l[index]);
+            l.RemoveAt(index);
+        }
+        return spawns;
+    }
+
     public void OnMapChange()
     {
         

@@ -14,23 +14,38 @@ public class ShieldMechanic : MonoBehaviour
     public float ShieldRechargeRate => _shieldRechargeRate;
 
     private bool _isShieldDown;
+    private Invulnerability _invulnerability;
+
+    private Coroutine cr;
 
     public static Action TookDamage;
+
+    private void Start()
+    {
+        _invulnerability = GetComponent<Invulnerability>();
+    }
+
     private void OnEnable()
     {
         TookDamage += OnTakeDamage;
+    }
+
+    private void OnDisable()
+    {
+        TookDamage -= OnTakeDamage;
     }
 
     private void OnTakeDamage()
     {
         if(_isShieldDown)
         {
-            Debug.Log("Game Over");
+            FindAnyObjectByType<MainMenu>().LoadSceneByIndex(0);
         } 
         else
         {
             _isShieldDown = true;
-            StartCoroutine(RechargeShield());
+            if(cr == null)
+                cr = StartCoroutine(RechargeShield());
         }
     }
 
@@ -39,5 +54,7 @@ public class ShieldMechanic : MonoBehaviour
 
         yield return new WaitForSeconds(_shieldRechargeCooldown);
         _isShieldDown = false;
+        cr = null;
+        yield return null;
     }
 }

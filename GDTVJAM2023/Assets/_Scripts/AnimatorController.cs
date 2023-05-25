@@ -68,4 +68,13 @@ public class AnimatorController : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.IsTouchingLayers())
+        {
+            _animator.SetTrigger("CancelFall");
+        }
+    }
+
+
 }

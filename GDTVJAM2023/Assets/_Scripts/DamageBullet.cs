@@ -30,12 +30,18 @@ public class DamageBullet : Bullet
             Destroy(this.gameObject);
         }
 
-        if (_playerMask.Contains(collision.gameObject.layer))
+        if (_playerMask.Contains(collision.gameObject.layer) && !collision.gameObject.GetComponent<Invulnerability>().IsInvulnerable())
         {
             ShieldMechanic.TookDamage?.Invoke();
             Destroy(this.gameObject);
+        } 
+        
+        else
+        {
+            Destroy(this.gameObject);
+
         }
-       
+
     }
 
 }
