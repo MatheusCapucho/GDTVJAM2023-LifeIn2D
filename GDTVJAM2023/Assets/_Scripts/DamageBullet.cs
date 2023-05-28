@@ -23,25 +23,24 @@ public class DamageBullet : Bullet
         Instantiate(_parallelBullet, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_environmentMask.Contains(collision.gameObject.layer))
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
 
         if (_playerMask.Contains(collision.gameObject.layer) && !collision.gameObject.GetComponent<Invulnerability>().IsInvulnerable())
         {
             ShieldMechanic.TookDamage?.Invoke();
             Destroy(this.gameObject);
-        } 
-        
-        else
-        {
-            Destroy(this.gameObject);
-
         }
 
+        else
+        {
+            //Destroy(this.gameObject);
+
+        }
     }
 
 }
