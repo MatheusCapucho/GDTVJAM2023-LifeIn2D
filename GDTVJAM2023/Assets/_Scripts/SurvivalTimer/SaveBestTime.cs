@@ -25,13 +25,17 @@ public class SaveBestTime : MonoBehaviour
 
         _currentTimeInSeconds = sec;
 
-        if(_currentTimeInSeconds > _bestTimeInSeconds)
+        if(_currentTimeInSeconds > GetBestTime())
+        {
             _bestTimeInSeconds = _currentTimeInSeconds;
+            PlayerPrefs.SetFloat("BestTime", _bestTimeInSeconds);
+        }
 
     }
 
     public static float GetBestTime()
     {
+        _bestTimeInSeconds = PlayerPrefs.HasKey("BestTime") ? PlayerPrefs.GetFloat("BestTime") : 0f;
         return _bestTimeInSeconds;
     }
 

@@ -17,6 +17,14 @@ public class UpdateGameOverUI : MonoBehaviour
 
     }
 
+    public void ResetAllPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        UpdateBestTime();
+        UpdateCurrentTime();
+
+    }
+
     private void UpdateCurrentTime()
     {
         float current = SaveBestTime.GetCurrentTime();
