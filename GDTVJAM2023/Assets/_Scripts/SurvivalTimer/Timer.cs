@@ -49,6 +49,9 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         _isRunning = false;
+        print(_currentTimePassed);
+        SaveBestTime.SaveTimer(_currentTimePassed);
         _currentTimePassed = _startingTime;
     }
+
 }

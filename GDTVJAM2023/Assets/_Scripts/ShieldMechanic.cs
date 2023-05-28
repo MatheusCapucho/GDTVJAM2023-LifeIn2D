@@ -39,8 +39,7 @@ public class ShieldMechanic : MonoBehaviour
     {
         if(_isShieldDown)
         {
-            MainMenu menu = FindAnyObjectByType<MainMenu>();
-            menu.LoadSceneByIndex(2);
+            StartCoroutine(LoadMenu());         
         } 
         else
         {
@@ -48,6 +47,16 @@ public class ShieldMechanic : MonoBehaviour
             if(cr == null)
                 cr = StartCoroutine(RechargeShield());
         }
+    }
+
+    IEnumerator LoadMenu()
+    {
+        MainMenu menu = FindAnyObjectByType<MainMenu>();
+
+        FindAnyObjectByType<Timer>().StopTimer();
+
+        yield return new WaitForSeconds(0.1f);
+        menu.LoadSceneByIndex(2);
     }
 
     IEnumerator RechargeShield()
