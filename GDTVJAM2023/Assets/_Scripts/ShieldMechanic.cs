@@ -39,7 +39,8 @@ public class ShieldMechanic : MonoBehaviour
     {
         if(_isShieldDown)
         {
-            FindAnyObjectByType<MainMenu>().LoadSceneByIndex(0);
+            MainMenu menu = FindAnyObjectByType<MainMenu>();
+            menu.LoadSceneByIndex(2);
         } 
         else
         {

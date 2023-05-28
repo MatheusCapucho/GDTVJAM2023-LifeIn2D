@@ -13,6 +13,7 @@ public class EndLevelBoundaries : MonoBehaviour
 
     private void GameOver()
     {
+        Debug.Log("morreu");
         SceneManager.LoadScene(0);
     }
 }
