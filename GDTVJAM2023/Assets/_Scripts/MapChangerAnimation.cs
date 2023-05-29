@@ -7,7 +7,7 @@ public class MapChangerAnimation : MonoBehaviour
 {
     private Animator anim;
 
-    private Action MapChanged;
+    public static Action MapChanged;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -24,6 +24,7 @@ public class MapChangerAnimation : MonoBehaviour
 
     private void ChangeMap()
     {
-        anim.SetTrigger("ChangeMap");
+        bool isParallel = !anim.GetBool("isParallel");
+        anim.SetBool("isParallel", isParallel);
     }
 }

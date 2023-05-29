@@ -36,6 +36,7 @@ public class MapChanger : MonoBehaviour
         {
             _timeElapsed = 0f;
             ChangeMap?.Invoke();
+            MapChangerAnimation.MapChanged?.Invoke();
         }
     }
 
