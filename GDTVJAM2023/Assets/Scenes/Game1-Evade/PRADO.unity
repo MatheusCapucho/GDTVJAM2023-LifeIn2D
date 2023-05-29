@@ -2234,6 +2234,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4673067630610032065, guid: 2c8a888ac936e29498fb6ef59a82ef38, type: 3}
+      propertyPath: _maxSpawns
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673067630610032065, guid: 2c8a888ac936e29498fb6ef59a82ef38, type: 3}
+      propertyPath: _spawnRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673067630610032065, guid: 2c8a888ac936e29498fb6ef59a82ef38, type: 3}
+      propertyPath: _timerOffset
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673067630610032065, guid: 2c8a888ac936e29498fb6ef59a82ef38, type: 3}
+      propertyPath: _spawnRateFactor
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673067630610032065, guid: 2c8a888ac936e29498fb6ef59a82ef38, type: 3}
+      propertyPath: _timeToIncreseDifficulty
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4673067630610032066, guid: 2c8a888ac936e29498fb6ef59a82ef38, type: 3}
       propertyPath: m_Name
       value: SpawnManager
@@ -2298,6 +2318,22 @@ PrefabInstance:
     - target: {fileID: 6089448017078026178, guid: 41d6f703f86f3b24abbf7a6f503686cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089448017078026179, guid: 41d6f703f86f3b24abbf7a6f503686cc, type: 3}
+      propertyPath: _maxSpawns
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089448017078026179, guid: 41d6f703f86f3b24abbf7a6f503686cc, type: 3}
+      propertyPath: _spawnRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089448017078026179, guid: 41d6f703f86f3b24abbf7a6f503686cc, type: 3}
+      propertyPath: _spawnRateFactor
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089448017078026179, guid: 41d6f703f86f3b24abbf7a6f503686cc, type: 3}
+      propertyPath: _timeToIncreseDifficulty
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41d6f703f86f3b24abbf7a6f503686cc, type: 3}
@@ -2422,6 +2458,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8806093467532004758, guid: 15e1f5ea54a17fc459e67182392b4911, type: 3}
+      propertyPath: _changerCooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8806093467532004759, guid: 15e1f5ea54a17fc459e67182392b4911, type: 3}
       propertyPath: m_Name
       value: MapChangeManager
